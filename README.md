@@ -9,12 +9,10 @@ Modern, responsive social media–style chat application UI (WhatsApp / Telegram
 - Frontend only (mock data)
 
 ## Run
-Option A (recommended):
-- From the repo root, run: `python -m http.server 5173`
-- Open: http://localhost:5173/chat-ui/
+Open chat-ui/index.html directly in your browser.
 
-Option B:
-- Open `chat-ui/index.html` directly in your browser.
+## GitHub Pages
+If you enable GitHub Pages (Settings → Pages) for the main branch root, the repo root index.html will redirect to /chat-ui automatically.
 
 ## Project structure
 - `chat-ui/index.html`
