@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Chat UI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app" id="app" data-theme="light">
+      <!-- Left sidebar: chat list -->
+      <aside class="sidebar" id="sidebar" aria-label="Chats">
+        <header class="sidebar__header">
+          <div class="sidebar__me">
+            <img class="avatar" id="meAvatar" alt="Your avatar" />
+            <div class="sidebar__meText">
+              <div class="sidebar__title">Messages</div>
+              <div class="sidebar__subtitle" id="meStatus">Online</div>
+            </div>
+          </div>
+
+          <div class="sidebar__actions" aria-label="Sidebar actions">
+            <button class="iconBtn" id="themeToggle" type="button" aria-label="Toggle theme" title="Toggle theme">
+              <span class="icon" aria-hidden="true">☾</span>
+            </button>
+            <button class="iconBtn" id="newChat" type="button" aria-label="New chat" title="New chat">
+              <span class="icon" aria-hidden="true">＋</span>
+            </button>
+          </div>
+        </header>
+
+        <div class="sidebar__search">
+          <div class="search">
+            <span class="search__icon" aria-hidden="true">⌕</span>
+            <input class="search__input" id="chatSearch" type="search" placeholder="Search chats" autocomplete="off" />
+          </div>
+        </div>
+
+        <div class="chatList" id="chatList" role="list"></div>
+      </aside>
+
+      <!-- Right panel: active chat -->
+      <main class="panel" id="panel" aria-label="Active chat">
+        <header class="chatHeader" id="chatHeader">
+          <button class="iconBtn iconBtn--back" id="backToList" type="button" aria-label="Back to chats" title="Back">
+            <span class="icon" aria-hidden="true">←</span>
+          </button>
+
+          <div class="chatHeader__left">
+            <img class="avatar" id="activeAvatar" alt="Active chat avatar" />
+            <div class="chatHeader__meta">
+              <div class="chatHeader__name" id="activeName">—</div>
+              <div class="chatHeader__status" id="activeStatus">
+                <span class="presence" id="activePresence" aria-hidden="true"></span>
+                <span id="activeStatusText">Select a chat</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="chatHeader__actions" aria-label="Chat actions">
+            <button class="iconBtn" type="button" aria-label="Search" title="Search">
+              <span class="icon" aria-hidden="true">⌕</span>
+            </button>
+            <button class="iconBtn" type="button" aria-label="Voice call" title="Voice call">
+              <span class="icon" aria-hidden="true">📞</span>
+            </button>
+            <button class="iconBtn" type="button" aria-label="Video call" title="Video call">
+              <span class="icon" aria-hidden="true">🎥</span>
+            </button>
+            <button class="iconBtn" type="button" aria-label="More options" title="More">
+              <span class="icon" aria-hidden="true">⋮</span>
+            </button>
+          </div>
+        </header>
+
+        <section class="messages" id="messages" aria-label="Messages">
+          <div class="messages__inner" id="messagesInner"></div>
+
+          <div class="typing" id="typingIndicator" aria-live="polite" aria-atomic="true" hidden>
+            <div class="typing__bubble">
+              <span class="typing__text" id="typingText">Typing…</span>
+              <span class="typing__dots" aria-hidden="true">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <footer class="composer" aria-label="Message composer">
+          <button class="iconBtn" id="emojiBtn" type="button" aria-label="Emoji" title="Emoji">
+            <span class="icon" aria-hidden="true">😊</span>
+          </button>
+
+          <div class="composer__inputWrap">
+            <textarea
+              class="composer__input"
+              id="messageInput"
+              rows="1"
+              placeholder="Message…"
+              aria-label="Message"
+            ></textarea>
+          </div>
+
+          <button class="iconBtn" id="attachBtn" type="button" aria-label="Attach" title="Attach">
+            <span class="icon" aria-hidden="true">📎</span>
+          </button>
+          <button class="iconBtn" id="micBtn" type="button" aria-label="Voice" title="Voice">
+            <span class="icon" aria-hidden="true">🎙️</span>
+          </button>
+          <button class="sendBtn" id="sendBtn" type="button" aria-label="Send" title="Send">
+            <span class="sendBtn__icon" aria-hidden="true">➤</span>
+          </button>
+        </footer>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
